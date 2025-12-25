@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var bulletSpd = 10.0
-@export var rnge = 40.0
+@export var rnge = 30.0
 
 var travelledDis = 0.0
 

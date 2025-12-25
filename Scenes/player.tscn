@@ -18,7 +18,7 @@ transform = Transform3D(-0.54999995, 0, 4.8082526e-08, 0, 0.55, 0, -4.8082523e-0
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.588603, -0.1504811, -0.9297664)
+transform = Transform3D(-0.9999914, 0, -0.0041190684, 0, 1, 0, 0.0041190684, 0, -0.9999914, 0.588603, -0.1504811, -0.9297664)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -38,3 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_fkybt")
 expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
