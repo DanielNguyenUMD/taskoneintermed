@@ -48,7 +48,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_pressed("Shoot") and %Timer.is_stopped():
+	if Input.is_action_pressed("Shoot"): 
 		shoot_bullet()
 	
 	
