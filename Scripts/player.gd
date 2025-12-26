@@ -3,6 +3,8 @@ extends CharacterBody3D
 var cursorVisible = false
 var mouseCounter = 0
 
+#ONLY EDIT FOR CAMERA DIRECTION AND MOUSE CURSOR
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * 0.5
@@ -20,6 +22,8 @@ func _unhandled_input(event):
 		print(mouseCounter)
 		
 func _physics_process(delta):
+	
+	#ONLY EDIT BELOW FOR BASIC PLAYER MOVEMENT
 		
 	var spd = 5.5
 	
@@ -48,7 +52,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_pressed("Shoot"): 
+	if Input.is_action_pressed("Shoot") and %Timer.is_stopped(): 
 		shoot_bullet()
 	
 	
