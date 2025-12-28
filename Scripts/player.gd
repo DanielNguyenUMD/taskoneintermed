@@ -82,7 +82,7 @@ func shoot_bullet():
 	var bullet = BULLET_3D.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = %Marker3D.global_position
-	var direction = (target - bullet.global_position).normalized() #if i shoot backwards, flip the sign
+	var direction = -(target - bullet.global_position).normalized() #if i shoot backwards, flip the sign
 	bullet.global_transform.basis = Basis.looking_at(direction, Vector3.UP)
 	
 	%Timer.start()

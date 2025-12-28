@@ -28,12 +28,13 @@ func _physics_process(_delta):
 	
 	#end vert
 	
-	var look_target = player.global_position
-	look_target.y = global_position.y
-	bat_model.look_at(look_target, Vector3.UP)
+	var dist_to_player = global_position.distance_to(player.global_position)
+	if dist_to_player > 0.5:
+		var look_target = player.global_position
+		look_target.y = global_position.y
+		bat_model.look_at(look_target, Vector3.UP)
 	
 	bat_model.rotate_y(PI)
-
 	
 func take_damage():
 	bat_model.hurt()
