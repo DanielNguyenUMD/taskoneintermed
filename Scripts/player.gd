@@ -58,12 +58,36 @@ func _physics_process(delta):
 	
 func shoot_bullet():
 	const BULLET_3D = preload("res://Bullet3D.tscn")
-	var new_bullet = BULLET_3D.instantiate()
-	%Marker3D.add_child(new_bullet)
 	
-	new_bullet.global_transform = %Marker3D.global_transform
+	#Old shooting code:	
+	#var new_bullet = BULLET_3D.instantiate()
+	#%Marker3D.add_child(new_bullet)
+	#new_bullet.global_transform = %Marker3D.global_transform
+	
+	var camera = %Camera3D
+	var viewport = get_viewport()
+	
+	var screen_center = viewport.get_visible_rect().size * 0.5
+	var ray_origin = camera.project_ray_origin(screen_center)
+	var ray_dir = camera.project_ray_normal(screen_center)
+	var ray_end = ray_origin + ray_dir * 1000
+	
+	var space_state = get_world_3d().direct_space_state
+	var test = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	test.exclude = [self]
+	
+	var res = space_state.intersect_ray(test)
+	var target = res.position if res else ray_end
+	
+	var bullet = BULLET_3D.instantiate()
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = %Marker3D.global_position
+	var direction = -(target - bullet.global_position).normalized() #if i shoot backwards, flip the sign
+	bullet.global_transform.basis = Basis.looking_at(direction, Vector3.UP)
 	
 	%Timer.start()
+	
+	
 	
 	
 	

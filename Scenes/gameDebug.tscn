@@ -126,3 +126,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_gxr5a")
 expand_mode = 1
+
+[editable path="Bat_Mob"]

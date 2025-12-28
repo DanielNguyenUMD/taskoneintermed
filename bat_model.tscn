@@ -1,8 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://bivo7y2ydcyo5"]
 
 [ext_resource type="PackedScene" uid="uid://b3w2vp0dbsfa4" path="res://mob/bat/bat_model.glb" id="1_0x8bn"]
-[ext_resource type="Material" uid="uid://dn7r5ydl5buoq" path="res://bat_color.tres" id="2_nqdqv"]
-[ext_resource type="Script" uid="uid://nyg2ojqj61d7" path="res://bat_model.gd" id="2_r07ig"]
+[ext_resource type="Material" uid="uid://dn7r5ydl5buoq" path="res://Materials/bat_color.tres" id="2_nqdqv"]
+
+[sub_resource type="GDScript" id="GDScript_nqdqv"]
+script/source = "extends Node3D
+
+@onready var animation_tree = %AnimationTree
+
+func hurt():
+	animation_tree.set(\"parameters/OneShot/request\", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+"
 
 [sub_resource type="Animation" id="Animation_0gbdx"]
 resource_name = "Idle"
@@ -157,7 +165,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.99972993, 0.36641335, 0.31514642, 0.39607844), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0.3647059, 0.3137255, 0.39607844), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ibqig"]
@@ -171,36 +179,36 @@ animation = &"Custom/Hurt"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r07ig"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4m1mr"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_r07ig"]
 mix_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ibqig"]
-graph_offset = Vector2(-509.602, 6.670267)
+graph_offset = Vector2(-689.16675, 52.70288)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_r07ig")
 nodes/Idle/position = Vector2(-280, 140)
 nodes/Hurt/node = SubResource("AnimationNodeAnimation_nqdqv")
 nodes/Hurt/position = Vector2(-280, 360)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_4m1mr")
-nodes/OneShot/position = Vector2(20, 140)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_r07ig")
+nodes/OneShot/position = Vector2(0, 180)
 node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Idle", &"OneShot", 1, &"Hurt"]
 
 [node name="bat_model" instance=ExtResource("1_0x8bn")]
-script = ExtResource("2_r07ig")
+script = SubResource("GDScript_nqdqv")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, -0.008930728, 0)
-bones/1/rotation = Quaternion(-0.033600233, 0.19305801, -0.6847032, 0.70198375)
-bones/2/rotation = Quaternion(-0.06767594, -0.01903338, 0.2717693, 0.9597912)
-bones/3/rotation = Quaternion(0.028355172, 0.056425594, 0.2603686, 0.9634419)
-bones/4/rotation = Quaternion(-0.033600233, -0.19305801, 0.6847032, 0.70198375)
-bones/5/rotation = Quaternion(-0.06767594, 0.01903338, -0.2717693, 0.9597912)
-bones/6/rotation = Quaternion(0.028355172, -0.056425594, -0.2603686, 0.9634419)
+bones/0/position = Vector3(0, -0.008009585, 0)
+bones/1/rotation = Quaternion(-0.030624483, 0.19030747, -0.6859195, 0.70168346)
+bones/2/rotation = Quaternion(-0.060660146, -0.01723301, 0.27362093, 0.95976824)
+bones/3/rotation = Quaternion(0.03609383, 0.058568932, 0.26301324, 0.96233624)
+bones/4/rotation = Quaternion(-0.030624483, -0.19030747, 0.6859195, 0.70168346)
+bones/5/rotation = Quaternion(-0.060660146, 0.01723301, -0.27362093, 0.95976824)
+bones/6/rotation = Quaternion(0.03609383, -0.058568932, -0.26301324, 0.96233624)
 bones/7/position = Vector3(0.1309921, -0.22739176, -0.087851465)
 bones/7/rotation = Quaternion(0.26196837, 0.08345512, 0.26575127, 0.9240044)
-bones/8/rotation = Quaternion(3.777872e-08, 0.6868954, 0.72675633, 1.7392614e-08)
+bones/8/rotation = Quaternion(3.8172804e-08, 0.6892972, 0.7244787, 1.6826327e-08)
 bones/10/position = Vector3(-0.1309921, -0.22739176, -0.087851465)
 bones/10/rotation = Quaternion(0.26196837, -0.083455116, -0.26575127, 0.9240044)
-bones/11/rotation = Quaternion(2.4469099e-08, 0.6868954, 0.72675633, 3.8956223e-08)
+bones/11/rotation = Quaternion(2.5043672e-08, 0.6892972, 0.7244787, 3.7404607e-08)
 
 [node name="bat" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_nqdqv")
@@ -213,9 +221,8 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 unique_name_in_owner = true
-root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_ibqig")
 anim_player = NodePath("../AnimationPlayer")
 parameters/OneShot/active = false
 parameters/OneShot/internal_active = false
-parameters/OneShot/request = 1
+parameters/OneShot/request = 0

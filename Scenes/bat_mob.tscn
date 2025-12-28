@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hhporc3aq18c"]
 
-[ext_resource type="Script" uid="uid://obngl08kxt17" path="res://Scenes/bat_mob.gd" id="1_sgiuc"]
+[ext_resource type="Script" uid="uid://obngl08kxt17" path="res://Scripts/bat_mob.gd" id="1_sgiuc"]
 [ext_resource type="PackedScene" uid="uid://bivo7y2ydcyo5" path="res://bat_model.tscn" id="2_sob3h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sgiuc"]
@@ -15,3 +15,19 @@ shape = SubResource("SphereShape3D_sgiuc")
 
 [node name="bat_model" parent="." instance=ExtResource("2_sob3h")]
 unique_name_in_owner = true
+
+[node name="Skeleton3D" parent="bat_model/Armature" index="0"]
+bones/0/position = Vector3(0, 0.0050516115, 0)
+bones/1/rotation = Quaternion(0.026322644, 0.1329784, -0.69030386, 0.71070707)
+bones/2/rotation = Quaternion(0.037743255, 0.012599748, 0.3092377, 0.95015204)
+bones/3/rotation = Quaternion(0.12152466, 0.088619076, 0.29983392, 0.94206053)
+bones/4/rotation = Quaternion(0.026322644, -0.1329784, 0.69030386, 0.71070707)
+bones/5/rotation = Quaternion(0.037743255, -0.012599748, -0.3092377, 0.95015204)
+bones/6/rotation = Quaternion(0.12152466, -0.088619076, -0.29983392, 0.94206053)
+bones/8/rotation = Quaternion(3.840503e-08, 0.70277417, 0.711413, 2.2648006e-08)
+bones/11/rotation = Quaternion(2.1387045e-08, 0.70277417, 0.711413, 3.526508e-08)
+
+[node name="AnimationTree" parent="bat_model" index="2"]
+root_node = NodePath("%AnimationTree/..")
+
+[editable path="bat_model"]

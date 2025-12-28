@@ -18,7 +18,7 @@ transform = Transform3D(-0.54999995, 0, 4.8082526e-08, 0, 0.55, 0, -4.8082523e-0
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(-0.9992966, 0, -0.037498433, 0, 1, 0, 0.037498433, 0, -0.9992966, 0.559189, -0.1504811, -0.9297664)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.559189, -0.1504811, -0.9297664)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
