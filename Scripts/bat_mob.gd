@@ -1,7 +1,8 @@
 extends RigidBody3D
 
+var health = 8
 @onready var bat_model = %bat_model
-var spd = randf_range(2.0, 4.0)
+var spd = randf_range(2.0,4.0)
 
 @onready var player = get_node("/root/game/Player")
 
@@ -46,3 +47,11 @@ func _physics_process(_delta):
 	
 func take_damage():
 	bat_model.hurt()
+	
+	health -= 1
+	if(health == 0):
+		set_physics_process(false)
+		gravity_scale = 1.0
+		var direction = -1.0 * global_position.direction_to(player.global_position)
+		var randomUp = Vector3.UP * randf_range(1.0, 5.0)
+		apply_central_impulse(direction * 10.0 + randomUp)
