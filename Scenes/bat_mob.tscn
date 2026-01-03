@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://hhporc3aq18c"]
+[gd_scene load_steps=6 format=3 uid="uid://hhporc3aq18c"]
 
 [ext_resource type="Script" uid="uid://obngl08kxt17" path="res://Scripts/bat_mob.gd" id="1_sgiuc"]
 [ext_resource type="PackedScene" uid="uid://bivo7y2ydcyo5" path="res://Scenes/bat_model.tscn" id="2_sob3h"]
+[ext_resource type="Texture2D" uid="uid://ddr8smg2n8cbm" path="res://mob/bat/bat_model_bat_palette.png" id="3_sob3h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sgiuc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mikr5"]
+resource_local_to_scene = true
+resource_name = "bat_mat"
+cull_mode = 2
+albedo_texture = ExtResource("3_sob3h")
+roughness = 0.42727274
 
 [node name="Bat_Mob" type="RigidBody3D"]
 lock_rotation = true
@@ -17,14 +25,19 @@ shape = SubResource("SphereShape3D_sgiuc")
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="bat_model/Armature" index="0"]
-bones/0/position = Vector3(0, 0.023599997, 0)
-bones/1/rotation = Quaternion(0.20962775, -0.022980873, -0.62010825, 0.7556414)
-bones/2/rotation = Quaternion(0.16974984, 0.077476874, 0.4080173, 0.89370257)
-bones/3/rotation = Quaternion(0.100143924, 0.08951979, 0.36282915, 0.9221239)
-bones/4/rotation = Quaternion(0.20962775, 0.022980873, 0.62010825, 0.7556414)
-bones/5/rotation = Quaternion(0.16974984, -0.077476874, -0.4080173, 0.89370257)
-bones/6/rotation = Quaternion(0.100143924, -0.08951979, -0.36282915, 0.9221239)
-bones/8/rotation = Quaternion(3.1122653e-08, 0.62994105, 0.77664304, 2.5810799e-08)
-bones/11/rotation = Quaternion(2.7760295e-08, 0.62994105, 0.77664304, 3.179166e-08)
+bones/0/position = Vector3(0, 0.018232893, 0)
+bones/1/rotation = Quaternion(0.21988475, -0.025320083, -0.60020226, 0.7686136)
+bones/2/rotation = Quaternion(0.12986879, 0.06022556, 0.41609645, 0.8979815)
+bones/3/rotation = Quaternion(0.028302787, 0.060588036, 0.3504827, 0.93417877)
+bones/4/rotation = Quaternion(0.21988475, 0.025320083, 0.60020226, 0.7686136)
+bones/5/rotation = Quaternion(0.12986879, -0.06022556, -0.41609645, 0.8979815)
+bones/6/rotation = Quaternion(0.028302787, -0.060588036, -0.3504827, 0.93417877)
+bones/8/rotation = Quaternion(2.2502215e-08, 0.59375983, 0.80464244, 2.4268083e-08)
+bones/11/rotation = Quaternion(3.011394e-08, 0.59375983, 0.80464244, 3.5898164e-08)
+
+[node name="bat" parent="bat_model/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mikr5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
 [editable path="bat_model"]

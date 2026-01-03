@@ -7,9 +7,6 @@ var deathFlag = false
 
 @onready var player = get_node("/root/game/Player")
 
-func _ready():
-	print("I am the gravity on init. of mob ", gravity_scale)
-
 func _physics_process(_delta):
 	
 		var horizontal_dir = Vector3(player.global_position.x - global_position.x, 0, player.global_position.z - global_position.z).normalized()	
@@ -39,6 +36,9 @@ func _physics_process(_delta):
 	#direction.y = 0.0
 	#linear_velocity = direction * spd
 	#bat_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
+
+func do_damage():
+	print("I have dealt damage")
 	
 func take_damage():
 	bat_model.hurt()
@@ -46,8 +46,3 @@ func take_damage():
 	health -= 1
 	if(health == 0):
 		queue_free()
-		
-		
-		
-		
-		

@@ -20,10 +20,6 @@ transform = Transform3D(-0.54999995, 0, 4.8082526e-08, 0, 0.55, 0, -4.8082523e-0
 unique_name_in_owner = true
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.559189, -0.1504811, -0.9297664)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_onrkg")
-
 [node name="Reticle" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,3 +39,20 @@ expand_mode = 1
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_right = 384.0
+offset_bottom = 64.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

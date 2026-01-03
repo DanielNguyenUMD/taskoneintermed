@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 var cursorVisible = false
 var mouseCounter = 0
+var playerHp = 100
+var maxHp = 100
+@onready var healthBar = %ProgressBar
 
 #ONLY EDIT FOR CAMERA DIRECTION AND MOUSE CURSOR
 
@@ -52,6 +55,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	
+		
+	
 	if Input.is_action_pressed("Shoot") and %Timer.is_stopped(): 
 		shoot_bullet()
 	
@@ -86,18 +92,22 @@ func shoot_bullet():
 	bullet.global_transform.basis = Basis.looking_at(direction, Vector3.UP)
 	
 	%Timer.start()
+
+func take_player_damage():
+	playerHp -= 5
+	playerHp = max(0, playerHp)
+	healthBar.value = playerHp
+	print("The player has taken 5 damage.")
+	print(playerHp)
 	
-	
-	
-	
-	
-	
-		
 func _ready():
 	print("Loaded children: ", get_tree().root.get_children())
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	healthBar.max_value = maxHp
+	healthBar.value = playerHp
+	healthBar.min_value = 0
 	
 	
-	
-	
-	
+func _on_area_3d_body_entered(body):
+	if body.has_method("do_damage"):
+		take_player_damage()
