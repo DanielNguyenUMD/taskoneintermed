@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://y87l148keva" path="res://Materials/BridgeTerrain.tres" id="2_a2jc6"]
 [ext_resource type="PackedScene" uid="uid://dexo37vqifhhy" path="res://Scenes/player.tscn" id="3_qniev"]
 [ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://player/reticle.png" id="4_gxr5a"]
-[ext_resource type="PackedScene" uid="uid://jmjfudw56t36" path="res://MobSpawner3D.tscn" id="5_a2jc6"]
+[ext_resource type="PackedScene" uid="uid://jmjfudw56t36" path="res://Scenes/MobSpawner3D.tscn" id="5_a2jc6"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1

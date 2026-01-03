@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdxv5jdaggjk2"]
+
+[ext_resource type="PackedScene" uid="uid://bw2m6rpraye2r" path="res://mob/spawner/spawner_model.glb" id="1_1l6br"]
+[ext_resource type="Shader" uid="uid://cfnwyva3u4qeb" path="res://mob/spawner/spawner_halo.gdshader" id="2_n0qxd"]
+[ext_resource type="Material" uid="uid://bh1ego7bi1olb" path="res://mob/spawner/spawner_screen_material.tres" id="3_n0qxd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsu32"]
+render_priority = 0
+shader = ExtResource("2_n0qxd")
+shader_parameter/color = Color(0.3881139, 0.82593554, 0.81808555, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsu32"]
+albedo_color = Color(0.8474744, 0.84747446, 0.84747446, 1)
+metallic = 0.7
+roughness = 0.4
+rim_enabled = true
+
+[node name="spawner_model" instance=ExtResource("1_1l6br")]
+
+[node name="halo" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_jsu32")
+
+[node name="Body" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jsu32")
+surface_material_override/1 = ExtResource("3_n0qxd")

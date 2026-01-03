@@ -57,7 +57,7 @@ func _physics_process(delta):
 	
 	
 func shoot_bullet():
-	const BULLET_3D = preload("res://Bullet3D.tscn")
+	const BULLET_3D = preload("res://Scenes/Bullet3D.tscn")
 	
 	#Old shooting code:	
 	#var new_bullet = BULLET_3D.instantiate()

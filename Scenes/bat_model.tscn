@@ -261,19 +261,19 @@ node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation", &"One
 script = SubResource("GDScript_nqdqv")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 0.015385305, 0)
-bones/1/rotation = Quaternion(0.21570924, -0.020567823, -0.59539, 0.7736649)
-bones/2/rotation = Quaternion(0.10982107, 0.05059665, 0.41510358, 0.901703)
-bones/3/rotation = Quaternion(0.0002042852, 0.04991086, 0.34281695, 0.93807536)
-bones/4/rotation = Quaternion(0.21570924, 0.020567823, 0.59539, 0.7736649)
-bones/5/rotation = Quaternion(0.10982107, -0.05059665, -0.41510358, 0.901703)
-bones/6/rotation = Quaternion(0.0002042852, -0.04991086, -0.34281695, 0.93807536)
+bones/0/position = Vector3(0, 0.00041213585, 0)
+bones/1/rotation = Quaternion(0.15792093, 0.023956968, -0.59297705, 0.7892181)
+bones/2/rotation = Quaternion(0.002969247, 0.0013158657, 0.38819772, 0.9215704)
+bones/3/rotation = Quaternion(-0.11735649, 0.012705742, 0.297076, 0.9475294)
+bones/4/rotation = Quaternion(0.15792093, -0.023956968, 0.59297705, 0.7892181)
+bones/5/rotation = Quaternion(0.002969247, -0.0013158657, -0.38819772, 0.9215704)
+bones/6/rotation = Quaternion(-0.11735649, -0.012705742, -0.297076, 0.9475294)
 bones/7/position = Vector3(0.1309921, -0.22739176, -0.087851465)
 bones/7/rotation = Quaternion(0.26196837, 0.08345512, 0.26575127, 0.9240044)
-bones/8/rotation = Quaternion(2.9596722e-08, 0.5815526, 0.81350875, 2.0557206e-08)
+bones/8/rotation = Quaternion(2.8739779e-08, 0.54321706, 0.83959234, 2.025482e-08)
 bones/10/position = Vector3(-0.1309921, -0.22739176, -0.087851465)
 bones/10/rotation = Quaternion(0.26196837, -0.083455116, -0.26575127, 0.9240044)
-bones/11/rotation = Quaternion(2.7469005e-08, 0.5815526, 0.81350875, 4.485702e-08)
+bones/11/rotation = Quaternion(2.5110602e-08, 0.54321706, 0.83959234, 4.3491283e-08)
 
 [node name="bat" parent="Armature/Skeleton3D" index="0"]
 unique_name_in_owner = true
