@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://jmjfudw56t36"]
+
+[ext_resource type="PackedScene" uid="uid://bw2m6rpraye2r" path="res://mob/spawner/spawner_model.glb" id="1_7qvj1"]
+
+[node name="MobSpawner3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8000001, 0)
+
+[node name="spawner_model" parent="." instance=ExtResource("1_7qvj1")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

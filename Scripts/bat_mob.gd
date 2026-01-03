@@ -57,8 +57,7 @@ func take_damage():
 	
 	health -= 1
 	if(health == 0):
-		print("test")
-		#queue_free()
+		queue_free()
 		
 		
 		
